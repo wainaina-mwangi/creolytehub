@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* @variant dark (&:where(.dark, .dark *)); only when applying dark-mode toggle  */ 
+@theme {
+  --color-brand-primary: #04342c; 
+  /* headers,nav,footer */
+  --color-brand-secondary: #1D9E75;
+  /* icons,links,borders,hoverstates,secondary btn */
+  --color-brand-accent: #D85A30;
+  /* badges,highlights */
+  --color-brand-primary-btn: #04342c;
+  /* main CTAS */
+  --color-brand-text: #1F2328;
+  --color-brand-gray: #157606A;
+
+}
+
+
+html {
+  scroll-behavior: smooth;
+   
+}
+
+
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+  
+   
+}

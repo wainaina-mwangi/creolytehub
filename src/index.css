@@ -31,10 +31,16 @@ html {
 
 
 body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
+  .cal-sans-regular {
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
   
    
 }

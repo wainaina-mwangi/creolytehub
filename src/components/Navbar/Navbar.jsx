@@ -1,46 +1,47 @@
 import React, { useState } from "react";
 import { NavbarMenu } from "../../mockData/mockData";
-import { IoWifi } from "react-icons/io5";
-import { FiMenu, FiX } from "react-icons/fi";
-// import ThemeButton from "../components/ThemeButton";
+import { FaGalacticRepublic } from "react-icons/fa6";
+import { MdCancel } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="navbar flex items-center justify-between sticky top-0 z-50 px-6 py-5">
+    <nav className="navbar">
+      {/* Brand Logo */}
       <div className="navbar-logo">
-        <Link to="/" className="flex items-center gap-2 group no-underline">
-          <div className="p-2 bg-brand-orange/10 rounded-lg group-hover:bg-brand-orange transition-colors duration-300">
-            <IoWifi className="text-brand-orange group-hover:text-white text-2xl transition-colors" />
+        <Link to="/" className="logo-link-container">
+          <div className="logo-icon-box">
+            <FaGalacticRepublic className="logo-icon" />
           </div>
-          <div className="flex flex-col leading-tight">
-            <span className="nav-logo-text text-xl font-black tracking-tighter">
-              Creolyte<span className="text-brand-orange">Hub</span>
+          <div className="logo-text-box">
+            <span className="nav-logo-text">
+              Creolyte<span className="text-brand-dark font-semibold">Hub</span>
             </span>
           </div>
         </Link>
       </div>
 
-      {/* Desktop nav  */}
-      <ul className="hidden md:flex items-center gap-8">
+      {/* Desktop Menu */}
+      <ul className="desktop-menu">
         {NavbarMenu.map((item) => (
-          <li key={item.id} className="relative group">
-            <Link
-              to={item.link}
-              className="nav-link text-sm font-semibold transition-colors"
-            >
+          <li key={item.id} className="desktop-menu-item">
+            <Link to={item.link} className="nav-link">
               {item.title}
             </Link>
-            <span className="absolute rounded -bottom-8 left-0 w-0 h-1 bg-brand-orange transition-all duration-300 group-hover:w-full"></span>
+            <span className="hover-underline"></span>
           </li>
         ))}
       </ul>
 
-      <div className="flex items-center gap-3">
-        <button className="button  hidden md:flex">
+      {/* Right Actions */}
+      <div className="navbar-actions">
+        <button className="button desktop-btn">
           Hire Talent
           <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -51,47 +52,64 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Mobile menu toggle */}
+        {/* Mobile Toggle Button */}
         <button
-          
-          className="md:hidden p-2 text-brand-orange "
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-          aria-expanded={mobileOpen}
+          className="mobile-toggle-trigger"
+          onClick={toggleMenu}
+          aria-label="Toggle Menu"
         >
-          {mobileOpen ? (
-            <FiX className="text-2xl" />
-          ) : (
-            <FiMenu className="text-2xl" />
-          )}
+          {isOpen ? <MdCancel className="w-[30px] " /> : <GiHamburgerMenu />}
         </button>
       </div>
 
-      {/* Mobile dropdown menu */}
-      {mobileOpen && (
-        <div className=" mobile-nav md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg px-6 py-4 flex flex-col gap-1">
-          {NavbarMenu.map((item) => (
-            <Link
-              key={item.id}
-              to={item.link}
-              className="nav-link text-sm font-semibold py-3 border-b border-gray-50 last:border-b-0"
-              onClick={() => setMobileOpen(false)}
-            >
-              {item.title}
-            </Link>
-          ))}
-          <button className="button mt-3 w-full justify-center">
-            Hire Talent
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                fillRule="evenodd"
-                d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
-          </button>
+      <div
+        className={`mobile-overlay ${isOpen ? "active" : ""}`}
+        onClick={toggleMenu}
+      />
+
+      {/* Mobile Sidebar Slide Drawer */}
+      <div className={`mobile-drawer ${isOpen ? "open" : ""}`}>
+        <div className="drawer-content">
+          <div className="drawer-header">
+            <div className="drawer-logo">
+              <FaGalacticRepublic className="drawer-logo-icon" />
+              <span className="drawer-logo-text">
+                Creolyte<span className="text-brand-orange">Hub</span>
+              </span>
+            </div>
+            <button className="close-btn" onClick={toggleMenu}>
+              <MdCancel />
+            </button>
+          </div>
+
+          <div className="drawer-body">
+            <div className="mobile-links-wrapper">
+              {NavbarMenu.map((item) => (
+                <Link
+                  key={item.id}
+                  to={item.link}
+                  className="mobile-link"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.title}
+                  <span className="arrow">→</span>
+                </Link>
+              ))}
+            </div>
+
+            <button className="button mobile-drawer-btn">
+              Hire Talent
+              <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  fillRule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </div>
         </div>
-      )}
+      </div>
     </nav>
   );
 };

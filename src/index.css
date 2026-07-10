@@ -2,17 +2,12 @@
 
 /* @variant dark (&:where(.dark, .dark *)); only when applying dark-mode toggle  */ 
 @theme {
-  --color-brand-primary: #04342c; 
-  /* headers,nav,footer */
-  --color-brand-secondary: #1D9E75;
-  /* icons,links,borders,hoverstates,secondary btn */
-  --color-brand-accent: #D85A30;
-  /* badges,highlights */
-  --color-brand-primary-btn: #04342c;
-  /* main CTAS */
+  --color-brand-primary: #04342c;      /* headers, nav, footer */
+  --color-brand-secondary: #1D9E75;    /* icons, links, borders, hover states, secondary btn */
+  --color-brand-accent: #D85A30;       /* badges, highlights */
+  --color-brand-primary-btn: #04342c;  /* main CTAs */
   --color-brand-text: #1F2328;
-  --color-brand-gray: #157606A;
-
+  --color-brand-gray: #57606A;
 }
 
 

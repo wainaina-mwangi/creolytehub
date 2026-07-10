@@ -24,7 +24,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      {/* Desktop nav — unchanged */}
+      {/* Desktop nav  */}
       <ul className="hidden md:flex items-center gap-8">
         {NavbarMenu.map((item) => (
           <li key={item.id} className="relative group">
@@ -40,7 +40,7 @@ const Navbar = () => {
       </ul>
 
       <div className="flex items-center gap-3">
-        <button className="button hidden md:flex" style={{display:"none"}}>
+        <button className="button  hidden md:flex">
           Hire Talent
           <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -51,9 +51,10 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Mobile menu toggle — only visible below md */}
+        {/* Mobile menu toggle */}
         <button
-          className="md:hidden p-2 text-brand-orange"
+          
+          className="md:hidden p-2 text-brand-orange "
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
@@ -68,7 +69,7 @@ const Navbar = () => {
 
       {/* Mobile dropdown menu */}
       {mobileOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg px-6 py-4 flex flex-col gap-1">
+        <div className=" mobile-nav md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg px-6 py-4 flex flex-col gap-1">
           {NavbarMenu.map((item) => (
             <Link
               key={item.id}

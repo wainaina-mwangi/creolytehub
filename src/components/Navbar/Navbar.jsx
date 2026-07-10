@@ -16,13 +16,18 @@ const Navbar = () => {
       {/* Brand Logo */}
       <div className="navbar-logo">
         <Link to="/" className="logo-link-container">
-          <div className="logo-icon-box">
-            <FaGalacticRepublic className="logo-icon" />
-          </div>
-          <div className="logo-text-box">
-            <span className="nav-logo-text">
-              Creolyte<span className="text-brand-dark font-semibold">Hub</span>
-            </span>
+          <div className="flex items-center gap-3 group cursor-pointer select-none">
+            <div className="flex items-center justify-center p-2.5 rounded-xl bg-[#006591]/10 dark:bg-white/5 transition-transform duration-300 group-hover:scale-105">
+              <FaGalacticRepublic className="w-9 h-9 text-[#006591] dark:text-sky-400 drop-shadow-sm" />
+            </div>
+            <div className="flex flex-col justify-center">
+              <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white transition-colors duration-200">
+                Creolyte
+                <span className="text-[#006591] dark:text-sky-400 font-semibold ml-0.5">
+                  Hub
+                </span>
+              </span>
+            </div>
           </div>
         </Link>
       </div>
@@ -54,11 +59,15 @@ const Navbar = () => {
 
         {/* Mobile Toggle Button */}
         <button
-          className="mobile-toggle-trigger"
           onClick={toggleMenu}
           aria-label="Toggle Menu"
+          className="inline-flex md:hidden items-center justify-center p-2 rounded-lg bg-transparent hover:bg-[#006591]/10 dark:hover:bg-white/5 active:scale-95 transition-all duration-200 outline-none border-none cursor-pointer"
         >
-          {isOpen ? <MdCancel className="w-[30px] " /> : <GiHamburgerMenu />}
+          {isOpen ? (
+            <MdCancel className="w-7 h-7  text-red-500 transform rotate-0 hover:scale-105 transition-transform duration-200" />
+          ) : (
+            <GiHamburgerMenu className="w-7 h-7  text-[#006591] dark:text-slate-200 transform rotate-0 hover:scale-105 transition-transform duration-200" />
+          )}
         </button>
       </div>
 
@@ -72,9 +81,10 @@ const Navbar = () => {
         <div className="drawer-content">
           <div className="drawer-header">
             <div className="drawer-logo">
-              <FaGalacticRepublic className="drawer-logo-icon" />
+              <FaGalacticRepublic className="drawer-logo-icon text-3xl" />
               <span className="drawer-logo-text">
-                Creolyte<span className="text-brand-orange">Hub</span>
+                Creolyte
+                <span className="text-[#006591] text-semibold">Hub</span>
               </span>
             </div>
             <button className="close-btn" onClick={toggleMenu}>

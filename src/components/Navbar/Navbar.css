@@ -29,9 +29,6 @@
   text-decoration: none;
 }
 
-.logo-icon {
-  width: 100px;
-}
 
 .nav-logo-text {
   font-size: 1.25rem;
@@ -132,18 +129,17 @@
 }
 
 .drawer-logo-text {
-  font-size: 1.25rem;
-  font-weight: 900;
+  font-size: 1.79rem;
+  font-weight: 600;
   letter-spacing: -0.05em;
   color: #0f172a;
 }
 
-.dark .drawer-logo-text {
-  color: #ffffff;
-}
+
 
 .drawer-logo-icon {
-  color: #ff6b00;
+  color: var(--nav-text);
+  width: 30px;
 }
 
 .close-btn {
@@ -166,7 +162,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100% - 60px); 
+  height: calc(100% - 250px); 
 }
 
 .mobile-links-wrapper {
@@ -181,12 +177,12 @@
   align-items: center;
   width: 100% !important; 
   box-sizing: border-box;
-  padding: 1.2rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #334155;
+  padding: 1rem 0;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--nav-text);
   text-decoration: none;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid #699ec2;
   transition: all 0.3s ease;
 }
 
@@ -196,7 +192,7 @@
 }
 
 .mobile-link:hover {
-  color: #ff6b00; 
+  color: var(--nav-text); 
   padding-left: 8px;
 }
 
@@ -207,7 +203,7 @@
 }
 
 .mobile-link:hover .arrow {
-  opacity: 1;
+  opacity: 3;
   transform: translateX(0);
 }
 

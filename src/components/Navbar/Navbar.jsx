@@ -12,8 +12,8 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="navbar">
-      {/* Brand Logo */}
+    <nav className="navbar ">
+      
       <div className="navbar-logo">
         <Link to="/" className="logo-link-container">
           <div className="flex items-center gap-3 group cursor-pointer select-none">
@@ -64,7 +64,7 @@ const Navbar = () => {
           className="inline-flex md:hidden items-center justify-center p-2 rounded-lg bg-transparent hover:bg-[#006591]/10 dark:hover:bg-white/5 active:scale-95 transition-all duration-200 outline-none border-none cursor-pointer"
         >
           {isOpen ? (
-            <MdCancel className="w-7 h-7  text-red-500 transform rotate-0 hover:scale-105 transition-transform duration-200" />
+            <MdCancel className="w-7 h-7 hidden text-red-500 transform rotate-0 hover:scale-105 transition-transform duration-200" />
           ) : (
             <GiHamburgerMenu className="w-7 h-7  text-[#006591] dark:text-slate-200 transform rotate-0 hover:scale-105 transition-transform duration-200" />
           )}

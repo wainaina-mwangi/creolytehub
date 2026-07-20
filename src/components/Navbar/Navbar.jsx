@@ -12,7 +12,7 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="navbar ">
+    <nav className="navbar">
       
       <div className="navbar-logo">
         <Link to="/" className="logo-link-container">

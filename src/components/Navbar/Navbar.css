@@ -336,4 +336,8 @@
   .desktop-menu-item:hover .hover-underline {
     width: 100%;
   }
+   
+  .navbar{
+    background-color: #e2e8f0;
+  }
 }

@@ -5,6 +5,7 @@ import { MdCancel } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import logoImg from "../../assets/logo.jpeg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,26 +14,20 @@ const Navbar = () => {
 
   return (
     <nav className="navbar">
-      
       <div className="navbar-logo">
         <Link to="/" className="logo-link-container">
           <div className="flex items-center gap-3 group cursor-pointer select-none">
-            <div className="flex items-center justify-center p-2.5 rounded-xl bg-[#006591]/10 dark:bg-white/5 transition-transform duration-300 group-hover:scale-105">
-              <FaGalacticRepublic className="w-9 h-9 text-[#006591] dark:text-sky-400 drop-shadow-sm" />
-            </div>
-            <div className="flex flex-col justify-center">
-              <span className="text-2xl font-black tracking-tight text-slate-900 dark:text-white transition-colors duration-200">
-                Creolyte
-                <span className="text-[#006591] dark:text-sky-400 font-semibold ml-0.5">
-                  Hub
-                </span>
-              </span>
+            <div className="flex items-center justify-center p-2.5 rounded-xl   transition-transform duration-300 group-hover:scale-105">
+              <img
+                src={logoImg}
+                alt="Creolyte Hub Logo"
+                className="h-14 mr-60 w-auto rounded-4xl object-contain"
+              />
             </div>
           </div>
         </Link>
       </div>
 
-      {/* Desktop Menu */}
       <ul className="desktop-menu">
         {NavbarMenu.map((item) => (
           <li key={item.id} className="desktop-menu-item">
@@ -44,7 +39,6 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Right Actions */}
       <div className="navbar-actions">
         <button className="button desktop-btn">
           Hire Talent
@@ -57,7 +51,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Mobile Toggle Button */}
         <button
           onClick={toggleMenu}
           aria-label="Toggle Menu"
@@ -81,11 +74,11 @@ const Navbar = () => {
         <div className="drawer-content">
           <div className="drawer-header">
             <div className="drawer-logo">
-              <FaGalacticRepublic className="drawer-logo-icon text-3xl" />
-              <span className="drawer-logo-text">
-                Creolyte
-                <span className="text-[#006591] text-semibold">Hub</span>
-              </span>
+              <img
+                src={logoImg}
+                alt="Creolyte Hub Logo"
+                className="h-13 w-auto rounded-4xl object-contain"
+              />
             </div>
             <button className="close-btn" onClick={toggleMenu}>
               <MdCancel />

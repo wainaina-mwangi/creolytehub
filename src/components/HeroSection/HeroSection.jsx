@@ -10,14 +10,14 @@ import "./HeroSection.css";
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
   const carouselImages = [
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=80",
-    "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80",
+
+    "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
+
+    "https://images.unsplash.com/photo-1616587896649-79b16d8b173d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   ];
 
-  // Auto-play effect: cycles slide every 4 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
@@ -115,6 +115,12 @@ export default function HeroSection() {
                     alt="Remote Engineer"
                     className="avatar"
                   />
+                  <img
+                    src="https://media.istockphoto.com/id/2218333130/photo/confident-businessman-smiling-in-a-casual-suit-and-glasses-indoors.webp?a=1&b=1&s=612x612&w=0&k=20&c=H6ImSogE21cldteIwpMDo2LgYK6Szk7mJC4M1aL8PWU="
+                    alt="Remote Specialist"
+                    className="avatar"
+                  />
+
                   <div className="avatar-plus-btn">
                     <MdAdd />
                   </div>

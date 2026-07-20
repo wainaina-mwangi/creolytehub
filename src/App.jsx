@@ -4,6 +4,9 @@ import Navbar from "./components/Navbar/Navbar";
 import HeroSection from "./components/HeroSection/HeroSection";
 import Banner from "./components/ManagementBanner/Banner";
 import ServicesGrid from "./components/ServicesGrid/ServicesGrid";
+import HowItWorks from "./components/HowItWorks/HowItWorks";
+import TestimonialSlider from "./components/TestimonialSlider/TestimonialSlider";
+import Pricing from "./components/PricingSection/Pricing";
 
 const App = () => {
   return (
@@ -12,6 +15,9 @@ const App = () => {
       <HeroSection />
       <Banner />
       <ServicesGrid />
+      <HowItWorks />
+      <TestimonialSlider />
+      <Pricing/>
     </>
   );
 };

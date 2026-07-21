@@ -7,16 +7,13 @@ import {
   MdAdd,
 } from "react-icons/md";
 import "./HeroSection.css";
+import image1 from "../../assets/image1.webp";
+import image2 from "../../assets/image2.webp";
+import image3 from "../../assets/image3.webp";
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselImages = [
-    "https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?auto=format&fit=crop&w=800&q=80",
-
-    "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80",
-
-    "https://images.unsplash.com/photo-1616587896649-79b16d8b173d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
+  const carouselImages = [image1, image2, image3];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -75,10 +72,10 @@ export default function HeroSection() {
                 className="carousel-track"
                 style={{ "--current-slide": currentIndex }}
               >
-                {carouselImages.map((src, index) => (
+                {carouselImages.map((imgSrc, index) => (
                   <img
                     key={index}
-                    src={src}
+                    src={imgSrc}
                     alt={`Remote talent presentation ${index + 1}`}
                     className="window-image"
                   />
@@ -130,7 +127,6 @@ export default function HeroSection() {
           </div>
         </div>
       </div>
-     
     </section>
   );
 }

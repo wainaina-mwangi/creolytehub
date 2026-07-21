@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   MdSupportAgent,
   MdChat,
@@ -10,6 +10,8 @@ import {
 import "./ServicesGrid.css";
 
 export default function ServicesGrid() {
+  const [showAll, setShowAll] = useState(false);
+
   const services = [
     {
       icon: <MdSupportAgent />,
@@ -43,24 +45,38 @@ export default function ServicesGrid() {
     },
   ];
 
-  return (
-   <section className="services-section">
-  <div className="services-container">
-    <div className="services-header">
-      <h2 className="services-main-title">Our Specialized Services</h2>
-      <p className="services-subtitle">High-quality talent tailored to scale your business operations effortlessly.</p>
-    </div>
+  const visibleServices = showAll ? services : services.slice(0, 3);
 
-    <div className="services-grid">
-      {services.map((item, index) => (
-        <div key={index} className="service-card">
-          <div className="service-icon-box">{item.icon}</div>
-          <h3 className="service-title">{item.title}</h3>
-          <p className="service-desc">{item.desc}</p>
+  return (
+    <section className="services-section">
+      <div className="services-container">
+        <div className="services-header">
+          <h2 className="services-main-title">Our Specialized Services</h2>
+          <p className="services-subtitle">
+            High-quality talent tailored to scale your business operations
+            effortlessly.
+          </p>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+
+        <div className="services-grid">
+          {visibleServices.map((item, index) => (
+            <div key={index} className="service-card">
+              <div className="service-icon-box">{item.icon}</div>
+              <h3 className="service-title">{item.title}</h3>
+              <p className="service-desc">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div className="services-btn-wrapper">
+          <button
+            className="see-more-btn"
+            onClick={() => setShowAll((prev) => !prev)}
+          >
+            {showAll ? "Show Less " : "See More"}
+          </button>
+        </div>
+      </div>
+    </section>
   );
 }

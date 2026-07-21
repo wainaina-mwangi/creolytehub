@@ -341,3 +341,22 @@
     background-color: #e2e8f0;
   }
 }
+
+
+
+@media (max-width: 480px) {
+ 
+
+
+.navbar{
+    background-color: #ffffff;
+    border-bottom:1px solid #006591 ;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+  }
+
+
+
+
+
+
+}

@@ -4,10 +4,11 @@
   padding: 4rem 1.5rem;
   box-sizing: border-box;
   text-align: center;
+  height: 30vh;
 }
 
 .mgmt-banner-container {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -16,10 +17,11 @@
 
 .mgmt-banner-title {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 2rem;
   font-weight: 650;
   letter-spacing: -0.03em;
   margin: 0;
+  
   line-height: 1.2;
 }
 
@@ -51,11 +53,28 @@
   .mgmt-banner-title {
   color: #ffffff;
   font-size: 1.8rem;
-  font-weight: 650;
-  letter-spacing: -0.01em;
-  margin: 0;
-  line-height: 1.2;
+  font-weight: 500;
+ 
 }
+
+
+.mgmt-banner-subtitle {
+  font-size: 1.1rem;
+  font-weight: 300;
+  
+}
+
+
+.mgmt-banner {
+  width: 100%;
+  background-color: #0b1c30; 
+  padding: 4rem 1.5rem;
+  box-sizing: border-box;
+  text-align: center;
+  height: 30vh;
+}
+
+
 }
 
 

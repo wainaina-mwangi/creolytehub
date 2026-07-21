@@ -7,6 +7,8 @@ import ServicesGrid from "./components/ServicesGrid/ServicesGrid";
 import HowItWorks from "./components/HowItWorks/HowItWorks";
 import TestimonialSlider from "./components/TestimonialSlider/TestimonialSlider";
 import Pricing from "./components/PricingSection/Pricing";
+import CtaSection from "./components/CtaSection/CtaSection";
+import Footer from "./components/Footer/Footer";
 
 const App = () => {
   return (
@@ -17,7 +19,9 @@ const App = () => {
       <ServicesGrid />
       <HowItWorks />
       <TestimonialSlider />
-      <Pricing/>
+      <Pricing />
+      <CtaSection />
+      <Footer />
     </>
   );
 };

@@ -22,6 +22,13 @@ export default function HeroSection() {
     return () => clearInterval(timer);
   }, [carouselImages.length]);
 
+  const handleScrollToServices = () => {
+    const servicesSection = document.getElementById("services-section");
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="hero-section">
       <div className="hero-container">
@@ -49,7 +56,12 @@ export default function HeroSection() {
 
           <div className="hero-cta-group">
             <button className="btn btn-primary">Hire Your Remote Team</button>
-            <button className="btn btn-secondary">View Services</button>
+            <button
+              className="btn btn-secondary"
+              onClick={handleScrollToServices}
+            >
+              View Services
+            </button>
           </div>
 
           <div className="hero-trust-footers">

@@ -48,7 +48,7 @@ export default function ServicesGrid() {
   const visibleServices = showAll ? services : services.slice(0, 3);
 
   return (
-    <section className="services-section">
+    <section className="services-section" id="services-section">
       <div className="services-container">
         <div className="services-header">
           <h2 className="services-main-title">Our Specialized Services</h2>

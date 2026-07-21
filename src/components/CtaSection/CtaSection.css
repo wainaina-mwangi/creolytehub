@@ -50,13 +50,13 @@
 }
 
 
-.btn-primary {
+.btn-Talent {
   background-color: #0f172a;
   color: #ffffff;
   border: 2px solid #0f172a;
 }
 
-.btn-primary:hover {
+.btn-Talent:hover {
   background-color: #1e293b;
   border-color: #1e293b;
   transform: translateY(-1px);

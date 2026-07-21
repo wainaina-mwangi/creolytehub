@@ -1,0 +1,115 @@
+.notfound-container {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0b1528; /* Matches your dark footer theme */
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.notfound-content {
+  max-width: 550px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.notfound-badge {
+  display: inline-block;
+  background-color: rgba(56, 189, 248, 0.1);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.notfound-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 2.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.notfound-description {
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.notfound-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.btn-primary-nf,
+.btn-outlined-nf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.75rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-primary-nf {
+  background-color: #38bdf8;
+  color: #0b1528;
+  border: 2px solid #38bdf8;
+}
+
+.btn-primary-nf:hover {
+  background-color: #0ea5e9;
+  border-color: #0ea5e9;
+  transform: translateY(-2px);
+}
+
+.btn-outlined-nf {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #1e293b;
+}
+
+.btn-outlined-nf:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 640px) {
+  .notfound-title {
+    font-size: 2.1rem;
+  }
+
+  .notfound-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary-nf,
+  .btn-outlined-nf {
+    width: 100%;
+  }
+}

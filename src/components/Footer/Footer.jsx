@@ -3,9 +3,10 @@ import { FiShare2, FiAtSign } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import logoImg from "../../assets/logo.jpeg";
 import "./Footer.css";
+import { Link } from "react-router";
 
 export default function Footer() {
-    
+
   const handleDirect = () => {
     const whatsapp = "https://wa.me/254114457931";
     window.open(whatsapp, "_blank", "noopener,noreferrer");
@@ -77,7 +78,7 @@ export default function Footer() {
                 Book a discovery call or chat with our team directly.
               </p>
               <div className="cta-card-buttons">
-                <button className="btn-blue">Book a Briefing</button>
+                <Link to='' className="btn-blue">Book a Briefing</Link>
                 <button className="btn-whatsapp" onClick={handleDirect}>
                   <FaWhatsapp className="whatsapp-icon" />
                   WhatsApp Support

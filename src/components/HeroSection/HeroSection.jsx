@@ -55,9 +55,9 @@ export default function HeroSection() {
           </p>
 
           <div className="hero-cta-group">
-            <button className="btn btn-primary">Hire Your Remote Team</button>
+            <button className=" btn-primary">Hire Your Remote Team</button>
             <button
-              className="btn btn-secondary"
+              className=" btn-secondary"
               onClick={handleScrollToServices}
             >
               View Services

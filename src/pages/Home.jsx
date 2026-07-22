@@ -6,17 +6,18 @@ import TestimonialSlider from "../components/TestimonialSlider/TestimonialSlider
 import Pricing from "../components/PricingSection/Pricing";
 import CtaSection from "../components/CtaSection/CtaSection";
 
-
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <Banner />
+      {/* <Banner /> */}
       <ServicesGrid />
       <HowItWorks />
       <TestimonialSlider />
       <Pricing />
+       <Banner />
       <CtaSection />
+     
     </>
   );
 }

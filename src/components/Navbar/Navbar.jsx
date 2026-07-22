@@ -5,12 +5,23 @@ import { MdCancel } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import logoImg from "../../assets/logo.jpeg";
 
-const Navbar = () => {
+const Navbar = ({ closeDrawer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const navigate = useNavigate();
+
+  const handleLinkClick = () => {
+    navigate("/hire-talent");
+
+    if (closeDrawer) {
+      closeDrawer();
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -40,7 +51,7 @@ const Navbar = () => {
       </ul>
 
       <div className="navbar-actions">
-        <button className="button desktop-btn">
+        <button className="button desktop-btn" onClick={handleLinkClick}>
           Hire Talent
           <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
             <path
@@ -69,7 +80,6 @@ const Navbar = () => {
         onClick={toggleMenu}
       />
 
-      {/* Mobile Sidebar Slide Drawer */}
       <div className={`mobile-drawer ${isOpen ? "open" : ""}`}>
         <div className="drawer-content">
           <div className="drawer-header">
@@ -100,7 +110,11 @@ const Navbar = () => {
               ))}
             </div>
 
-            <button className="button mobile-drawer-btn">
+            <button
+              className="button mobile-drawer-btn"
+              onClick={handleLinkClick}
+              style={{ textDecoration: "none" }}
+            >
               Hire Talent
               <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
                 <path

@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./CtaSection.css";
+import { useNavigate } from "react-router";
 
-export default function CtaSection() {
+export default function CtaSection({ closeDrawer }) {
   const containerVariants = {
     hidden: { opacity: 0, scale: 0.97 },
     visible: {
@@ -23,6 +24,16 @@ export default function CtaSection() {
       y: 0,
       transition: { duration: 0.5, ease: "easeOut" },
     },
+  };
+
+  const navigate = useNavigate();
+
+  const handleLinkClick = () => {
+    navigate("/hire-talent");
+
+    if (closeDrawer) {
+      closeDrawer();
+    }
   };
 
   return (
@@ -60,6 +71,7 @@ export default function CtaSection() {
             className="btn btn-Talent"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
+            onClick={handleLinkClick}
           >
             Hire Talent
           </motion.button>

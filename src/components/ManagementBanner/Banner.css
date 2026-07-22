@@ -20,7 +20,7 @@
 }
 
 .mgmt-banner-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
@@ -45,8 +45,8 @@
 }
 
 .mgmt-pill-dot {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background-color: #38bdf8;
   border-radius: 50%;
 }
@@ -56,14 +56,14 @@
   font-weight: 500;
   letter-spacing: 0.1em;
   color: #38bdf8;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.55rem;
 }
 
 .mgmt-banner-title {
-  font-size: 2.35rem;
+  font-size: 2.55rem;
   font-weight: 600;
   line-height: 1.25;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .mgmt-banner-subtitle {
@@ -71,7 +71,7 @@
   color: #e2e8f0;
   max-width: 600px;
   line-height: 1.55;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 

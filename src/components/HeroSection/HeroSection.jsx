@@ -11,6 +11,7 @@ import "./HeroSection.css";
 import image1 from "../../assets/image1.webp";
 import image2 from "../../assets/image2.webp";
 import image3 from "../../assets/image3.webp";
+import { useNavigate } from "react-router";
 
 export default function HeroSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -61,6 +62,15 @@ export default function HeroSection() {
     },
   };
 
+  const navigate = useNavigate();
+
+  const handleLinkClick = () => {
+    navigate("/hire-talent");
+
+    if (closeDrawer) {
+      closeDrawer();
+    }
+  };
   return (
     <section className="hero-section" onMouseMove={handleMouseMove}>
       <div className="hero-container">
@@ -96,6 +106,7 @@ export default function HeroSection() {
               className="btn btn-primary"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
+              onClick={handleLinkClick}
             >
               Hire Your Remote Team
             </motion.button>

@@ -5,12 +5,13 @@ import HowItWorks from "../components/HowItWorks/HowItWorks";
 import TestimonialSlider from "../components/TestimonialSlider/TestimonialSlider";
 import Pricing from "../components/PricingSection/Pricing";
 import CtaSection from "../components/CtaSection/CtaSection";
+import StatsCounter from "../components/StatsCounter/StatsCounter";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      {/* <Banner /> */}
+      <StatsCounter/>
       <ServicesGrid />
       <HowItWorks />
       <TestimonialSlider />

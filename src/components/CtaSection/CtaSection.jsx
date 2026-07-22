@@ -12,7 +12,7 @@ export default function CtaSection() {
           Creolyte Hub is your partner in excellence.
         </p>
         <div className="cta-buttons">
-          <button className="btn btn-primary">Hire Talent</button>
+          <button className="btn btn-Talent">Hire Talent</button>
           <button className="btn btn-outlined">Partner with Us</button>
         </div>
       </div>

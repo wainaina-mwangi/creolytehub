@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import {
   MdVerifiedUser,
   MdPublic,
@@ -19,7 +19,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 4000);
+    }, 6000);
     return () => clearInterval(timer);
   }, [carouselImages.length]);
 
@@ -118,22 +118,20 @@ export default function HeroSection() {
           <div className="window-card">
             <div className="window-header"></div>
 
-            <div
-              className="window-body-carousel"
-              style={{ position: "relative", overflow: "hidden" }}
-            >
-              <AnimatePresence mode="wait">
-                <motion.img
-                  key={currentIndex}
-                  src={carouselImages[currentIndex]}
-                  alt={`Remote talent presentation ${currentIndex + 1}`}
-                  className="window-image"
-                  initial={{ opacity: 0, scale: 1.03 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.97 }}
-                  transition={{ duration: 0.6, ease: "easeInOut" }}
-                />
-              </AnimatePresence>
+            <div className="window-body-carousel">
+              <div
+                className="carousel-track"
+                style={{ "--current-slide": currentIndex }}
+              >
+                {carouselImages.map((imgSrc, index) => (
+                  <img
+                    key={index}
+                    src={imgSrc}
+                    alt={`Remote talent presentation ${index + 1}`}
+                    className="window-image"
+                  />
+                ))}
+              </div>
 
               <div className="carousel-dots">
                 {carouselImages.map((_, index) => (

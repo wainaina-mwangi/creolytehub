@@ -95,13 +95,13 @@
   background-color: #006591;
   color: #ffffff;
   border: none;
-  box-shadow: 0 4px 14px rgba(0, 101, 145, 0.25);
+  
 }
 
 .btn-primary:hover {
   background-color: #004d6e;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 101, 145, 0.35);
+  
 }
 
 .btn-secondary {

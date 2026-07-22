@@ -1,11 +1,36 @@
-
 .hero-section {
   width: 100%;
-  background-color: #f8fafc; 
   padding: 3rem 1.5rem;
   box-sizing: border-box;
+  position: relative;
+  background-color: #4375d8a1;
+  background-image: radial-gradient(rgba(147, 156, 175, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+  --x: 50%;
+  --y: 30%;
 }
 
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x) var(--y), 
+    rgba(14, 165, 233, 0.18) 0%,   
+    rgba(255, 255, 255, 0.95) 75%  
+  );
+  pointer-events: none;
+  z-index: 0; 
+  transition: background 0.15s ease-out;
+}
+
+
+.hero-container,
+.hero-content,
+.hero-graphic-wrapper {
+  position: relative;
+  z-index: 1;
+}
 .hero-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -55,8 +80,8 @@
 }
 
 .hero-title {
-  font-size: 2.75rem;
-  font-weight: 900;
+  font-size: 2.35rem;
+  font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.04em;
   color: #0f172a;
@@ -68,11 +93,11 @@
 }
 
 .hero-description {
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: #475569;
   margin: 0 0 2.5rem 0;
-  max-width: 520px;
+  max-width: 510px;
 }
 
 .hero-cta-group {

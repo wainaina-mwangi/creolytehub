@@ -30,6 +30,17 @@ export default function HeroSection() {
     }
   };
 
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+
+    e.currentTarget.style.setProperty("--x", `${x}%`);
+    e.currentTarget.style.setProperty("--y", `${y}%`);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -51,7 +62,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="hero-section">
+    <section className="hero-section" onMouseMove={handleMouseMove}>
       <div className="hero-container">
         <motion.div
           className="hero-content"

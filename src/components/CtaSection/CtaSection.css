@@ -51,14 +51,13 @@
 
 
 .btn-Talent {
-  background-color: #0f172a;
+  background-color: #006591;
   color: #ffffff;
-  border: 2px solid #0f172a;
+ 
 }
 
 .btn-Talent:hover {
-  background-color: #1e293b;
-  border-color: #1e293b;
+  background-color: #006591;
   transform: translateY(-1px);
 }
 
@@ -66,11 +65,11 @@
 .btn-outlined {
   background-color: transparent;
   color: #0f172a;
-  border: 2px solid #0f172a;
+  border: 2px solid #006591;
 }
 
 .btn-outlined:hover {
-  background-color: #0f172a;
+  background-color: #006591;
   color: #ffffff;
   transform: translateY(-1px);
 }

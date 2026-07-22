@@ -170,7 +170,7 @@ export default function HeroSection() {
             <div className="window-footer">
               <div className="footer-left">
                 <span className="footer-label">Current Active Talent</span>
-                <h3 className="footer-stat">500+</h3>
+                <h3 className="footer-stat">100+</h3>
               </div>
 
               <div className="footer-right">

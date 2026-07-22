@@ -7,7 +7,7 @@ import { Link } from "react-router";
 
 export default function Footer() {
   const handleDirect = () => {
-    const whatsapp = "https://wa.me/254114457931";
+    const whatsapp = "https://wa.me/254715071832";
     window.open(whatsapp, "_blank", "noopener,noreferrer");
   };
 

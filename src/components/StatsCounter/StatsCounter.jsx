@@ -50,7 +50,7 @@ export default function StatsCounter() {
     { endValue: 100, suffix: "+", label: "Vetted Professionals" },
     { endValue: 98, suffix: "%", label: "Client Retention Rate" },
     { endValue: 48, suffix: "h", label: "Average Match Time" },
-    { endValue: 25, suffix: "+", label: "Global Markets" },
+    { endValue: 10, suffix: "+", label: "Global Markets" },
   ];
 
   return (

@@ -6,7 +6,6 @@ import "./Footer.css";
 import { Link } from "react-router";
 
 export default function Footer() {
-
   const handleDirect = () => {
     const whatsapp = "https://wa.me/254114457931";
     window.open(whatsapp, "_blank", "noopener,noreferrer");
@@ -78,7 +77,9 @@ export default function Footer() {
                 Book a discovery call or chat with our team directly.
               </p>
               <div className="cta-card-buttons">
-                <Link to='' className="btn-blue">Book a Briefing</Link>
+                <Link to="" className="btn-blue">
+                  Book a Briefing
+                </Link>
                 <button className="btn-whatsapp" onClick={handleDirect}>
                   <FaWhatsapp className="whatsapp-icon" />
                   WhatsApp Support
@@ -96,7 +97,7 @@ export default function Footer() {
           <div className="footer-status">
             <span className="status-indicator">Systems Online</span>
             <span className="footer-location">
-              Nairobi HQ: +254 (0) 123 456 789
+              Nairobi HQ: +254 (0) 715 071 832
             </span>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   MdVerifiedUser,
   MdPublic,
@@ -29,42 +30,75 @@ export default function HeroSection() {
     }
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 25 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
     <section className="hero-section">
       <div className="hero-container">
-        <div className="hero-content">
-          <div className="badge-wrapper">
+        <motion.div
+          className="hero-content"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <motion.div className="badge-wrapper" variants={itemVariants}>
             <span className="badge badge-verified">
               <MdVerifiedUser className="badge-icon" /> Verified Pro
             </span>
             <span className="badge badge-global">
               <MdPublic className="badge-icon" /> Global Reach
             </span>
-          </div>
+          </motion.div>
 
-          <h1 className="hero-title">
+          <motion.h1 className="hero-title" variants={itemVariants}>
             Global Work.
             <br />
             <span className="title-accent">Local Excellence.</span>
-          </h1>
+          </motion.h1>
 
-          <p className="hero-description">
+          <motion.p className="hero-description" variants={itemVariants}>
             Connecting international businesses with vetted, managed remote
             talent from Kenya. Scale your operations with precision, speed, and
             cultural alignment.
-          </p>
+          </motion.p>
 
-          <div className="hero-cta-group">
-            <button className=" btn  btn-primary">Hire Your Remote Team</button>
-            <button
+          <motion.div className="hero-cta-group" variants={itemVariants}>
+            <motion.button
+              className="btn btn-primary"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+            >
+              Hire Your Remote Team
+            </motion.button>
+            <motion.button
               className="btn btn-secondary"
               onClick={handleScrollToServices}
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               View Services
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-          <div className="hero-trust-footers">
+          <motion.div className="hero-trust-footers" variants={itemVariants}>
             <span className="trust-item">
               <MdFlashOn className="trust-icon" /> 24h Response
             </span>
@@ -72,27 +106,34 @@ export default function HeroSection() {
               <MdSentimentSatisfiedAlt className="trust-icon" /> 98%
               Satisfaction
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="hero-graphic-wrapper">
+        <motion.div
+          className="hero-graphic-wrapper"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div className="window-card">
             <div className="window-header"></div>
 
-            <div className="window-body-carousel">
-              <div
-                className="carousel-track"
-                style={{ "--current-slide": currentIndex }}
-              >
-                {carouselImages.map((imgSrc, index) => (
-                  <img
-                    key={index}
-                    src={imgSrc}
-                    alt={`Remote talent presentation ${index + 1}`}
-                    className="window-image"
-                  />
-                ))}
-              </div>
+            <div
+              className="window-body-carousel"
+              style={{ position: "relative", overflow: "hidden" }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentIndex}
+                  src={carouselImages[currentIndex]}
+                  alt={`Remote talent presentation ${currentIndex + 1}`}
+                  className="window-image"
+                  initial={{ opacity: 0, scale: 1.03 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.97 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                />
+              </AnimatePresence>
 
               <div className="carousel-dots">
                 {carouselImages.map((_, index) => (
@@ -130,14 +171,18 @@ export default function HeroSection() {
                     className="avatar"
                   />
 
-                  <div className="avatar-plus-btn">
+                  <motion.div
+                    className="avatar-plus-btn"
+                    whileHover={{ rotate: 90 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <MdAdd />
-                  </div>
+                  </motion.div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,7 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { MdCheckCircleOutline } from "react-icons/md";
 import "./Pricing.css";
-import { Link } from "react-router";
 
 export default function PricingSection() {
   const tiers = [
@@ -39,26 +39,87 @@ export default function PricingSection() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 35, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.3 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  };
+
   return (
     <section className="pricing-section">
       <div className="pricing-container">
-        {/* Header */}
-        <div className="pricing-header">
+        <motion.div
+          className="pricing-header"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="pricing-main-title">Flexible Scale</h2>
           <p className="pricing-subtitle">
             Pricing built for startups and enterprises alike.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Pricing Cards Grid */}
-        <div className="pricing-grid">
+        <motion.div
+          className="pricing-grid"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {tiers.map((tier, index) => (
-            <div
-              key={index}
-              className={`pricing-card ${tier.popular ? "card-featured" : "card-standard"}`}
+            <motion.div
+              key={tier.title}
+              variants={cardVariants}
+              whileHover={{
+                y: tier.popular ? -12 : -8,
+                transition: { duration: 0.25 },
+              }}
+              className={`pricing-card ${
+                tier.popular ? "card-featured" : "card-standard"
+              }`}
             >
               {tier.popular && (
-                <div className="popular-badge">MOST POPULAR</div>
+                <motion.div
+                  className="popular-badge"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{
+                    delay: 0.5,
+                    type: "spring",
+                    stiffness: 300,
+                  }}
+                >
+                  MOST POPULAR
+                </motion.div>
               )}
 
               <div className="card-top-content">
@@ -66,22 +127,38 @@ export default function PricingSection() {
                 <h3 className="tier-title">{tier.title}</h3>
                 <p className="tier-desc">{tier.desc}</p>
 
-                <ul className="tier-features-list">
+                <motion.ul
+                  className="tier-features-list"
+                  variants={listVariants}
+                >
                   {tier.features.map((feature, idx) => (
-                    <li key={idx} className="feature-item">
-                      <MdCheckCircleOutline className="feature-icon" />
+                    <motion.li
+                      key={idx}
+                      variants={itemVariants}
+                      className="feature-item"
+                    >
+                      <motion.div
+                        whileHover={{ scale: 1.25, rotate: 360 }}
+                        transition={{ type: "spring", stiffness: 260 }}
+                      >
+                        <MdCheckCircleOutline className="feature-icon" />
+                      </motion.div>
                       <span>{feature}</span>
-                    </li>
+                    </motion.li>
                   ))}
-                </ul>
+                </motion.ul>
               </div>
 
-              <button to="/pricing" className="tier-action-btn">
+              <motion.button
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="tier-action-btn"
+              >
                 {tier.btnText}
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

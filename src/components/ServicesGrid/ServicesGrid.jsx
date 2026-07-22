@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   MdSupportAgent,
   MdChat,
@@ -45,8 +46,6 @@ export default function ServicesGrid() {
     },
   ];
 
-  const visibleServices = showAll ? services : services.slice(0, 3);
-
   return (
     <section className="services-section" id="services-section">
       <div className="services-container">
@@ -57,24 +56,53 @@ export default function ServicesGrid() {
             effortlessly.
           </p>
         </div>
-
-        <div className="services-grid">
-          {visibleServices.map((item, index) => (
-            <div key={index} className="service-card">
-              <div className="service-icon-box">{item.icon}</div>
-              <h3 className="service-title">{item.title}</h3>
-              <p className="service-desc">{item.desc}</p>
-            </div>
-          ))}
-        </div>
+        <motion.div
+          className="services-grid-wrapper"
+          initial={false}
+          animate={{
+            height: showAll ? "auto" : "auto", 
+          }}
+          style={{ overflow: "hidden" }}
+        >
+          <div className="services-grid">
+            {services.map((item, index) => {
+              const isExtra = index >= 3;
+              return (
+                <motion.div
+                  key={item.title}
+                  animate={{
+                    opacity: !showAll && isExtra ? 0 : 1,
+                    y: !showAll && isExtra ? 20 : 0,
+                    scale: !showAll && isExtra ? 0.95 : 1,
+                  }}
+                  transition={{
+                    duration: 0.35,
+                    delay: isExtra ? (index - 3) * 0.08 : 0,
+                  }}
+                  whileHover={{ y: -6 }}
+                  className="service-card"
+                  style={{
+                    display: !showAll && isExtra ? "none" : "block", 
+                  }}
+                >
+                  <div className="service-icon-box">{item.icon}</div>
+                  <h3 className="service-title">{item.title}</h3>
+                  <p className="service-desc">{item.desc}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
 
         <div className="services-btn-wrapper">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className="see-more-btn"
             onClick={() => setShowAll((prev) => !prev)}
           >
-            {showAll ? "Show Less " : "See More"}
-          </button>
+            {showAll ? "Show Less" : "See More"}
+          </motion.button>
         </div>
       </div>
     </section>

@@ -22,6 +22,7 @@ html {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+   
 }
 
 
@@ -30,8 +31,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.01em;
-  /* overflow: hidden; */
-  /* background-color: #921b1b;   */
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 
@@ -39,4 +40,29 @@ body {
   font-family: "Cal Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
+}
+
+
+
+.Toastify__toast--success {
+  background-color: #006591 !important; 
+  color: #ffffff !important;            
+  border-radius: 12px !important;       
+  box-shadow: 0 10px 25px rgba(0, 101, 145, 0.3) !important;
+}
+
+
+.Toastify__toast--success .Toastify__toast-icon svg {
+  fill: #38bdf8 !important; 
+}
+
+
+.Toastify__progress-bar--success {
+  background: #38bdf8 !important;
+}
+
+
+.Toastify__close-button {
+  color: #ffffff !important;
+  opacity: 0.8;
 }

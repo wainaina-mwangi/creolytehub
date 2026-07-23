@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { FiEye, FiShield, FiGlobe, FiMapPin, FiMail } from "react-icons/fi";
 import "./About.css";
 
-// Reusable Framer Motion Variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -27,7 +26,6 @@ export default function AboutPage() {
   return (
     <div className="about-page">
       <div className="about-container">
-        {/* HERO / MISSION SECTION */}
         <motion.section
           className="about-grid-2"
           initial="hidden"
@@ -117,7 +115,6 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-        {/* CORE PILLARS / DIRECTIVES SECTION */}
         <motion.section
           className="directives-section"
           initial="hidden"
@@ -181,7 +178,6 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-        {/* HEADQUARTERS SECTION */}
         <motion.section
           initial="hidden"
           whileInView="visible"

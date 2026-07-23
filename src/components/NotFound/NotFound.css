@@ -3,16 +3,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0b1528; /* Matches your dark footer theme */
+  background-color: #0b1528;
   color: #ffffff;
   padding: 2rem 1.5rem;
   text-align: center;
+  background-image: linear-gradient(
+                    
+                    rgba(11, 87, 173, 0.568), 
+                    rgb(0, 102, 145)
+                  ), 
+                  url('../../assets/image3.webp');
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .notfound-content {
   max-width: 550px;
   width: 100%;
   display: flex;
+  background-color:#033755;
+  padding: 40px 60px;
+  border-radius: 10px;
   flex-direction: column;
   align-items: center;
 }

@@ -231,8 +231,8 @@ export default function TalentPage() {
                   </div>
 
                   <div className="card-footer">
-                    <button className="btn-secondary">View Profile</button>
-                    <button className="btn-primary">
+                    <button className="btn-sec">View Profile</button>
+                    <button className="btn-talent">
                       Hire Talent <FiExternalLink size={14} />
                     </button>
                   </div>

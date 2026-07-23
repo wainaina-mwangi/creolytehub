@@ -1,104 +1,100 @@
 import React from "react";
-import { FiShare2, FiAtSign } from "react-icons/fi";
+import { Link } from "react-router-dom";
+import { FiShare2, FiAtSign, FiArrowUpRight } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import logoImg from "../../assets/logo.jpeg";
 import "./Footer.css";
-import { Link } from "react-router";
 
-export default function Footer() {
-  const handleDirect = () => {
-    const whatsapp = "https://wa.me/254715071832";
-    window.open(whatsapp, "_blank", "noopener,noreferrer");
+export default function FooterDarkHero() {
+  const handleWhatsapp = () => {
+    window.open("https://wa.me/254715071832", "_blank", "noopener,noreferrer");
+  };
+
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({ title: "Creolyte Hub", url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(window.location.href);
+      alert("Link copied to clipboard!");
+    }
   };
 
   return (
-    <footer className="site-footer">
-      <div className="footer-container">
-        <div className="footer-grid">
-          <div className="footer-col brand-col">
-            <div className="footer-logo">
-              <img src={logoImg} alt="Creolyte Logo" />
-            </div>
-            <p className="footer-bio">
-              Global Talent, Local Precision. Bridging the gap between
-              borderless work and local excellence.
+    <footer className="footer-dark-hero">
+      <div className="fdh-container">
+        <div className="fdh-hero-box">
+          <div className="fdh-hero-content">
+            <span className="fdh-hero-tag">HQ IN NAIROBI, KENYA</span>
+            <h2>Ready to scale with global talent?</h2>
+            <p>
+              Book a discovery call or reach out directly on WhatsApp to get
+              started.
             </p>
-            <div className="social-icons">
-              <a href="#share" className="icon-circle" aria-label="Share">
-                <FiShare2 />
-              </a>
-              <a
-                href="#email"
-                className="icon-circle"
-                aria-label="Contact Email"
-              >
-                <FiAtSign />
-              </a>
-            </div>
           </div>
-
-          <div className="footer-col">
-            <h4 className="footer-col-title">Company</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#about">About Us</a>
-              </li>
-              <li>
-                <a href="#kenya-operations">Kenya Operations</a>
-              </li>
-              <li>
-                <a href="#case-studies">Case Studies</a>
-              </li>
-              <li>
-                <a href="#newsletter">Newsletter</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-col">
-            <h4 className="footer-col-title">Legal</h4>
-            <ul className="footer-links">
-              <li>
-                <a href="#privacy">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#terms">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#contact">Contact Us</a>
-              </li>
-            </ul>
-          </div>
-
-          <div className="footer-col cta-card-col">
-            <div className="footer-cta-card">
-              <h3 className="cta-card-title">Start Growing Today</h3>
-              <p className="cta-card-desc">
-                Book a discovery call or chat with our team directly.
-              </p>
-              <div className="cta-card-buttons">
-                <Link to="" className="btn-blue">
-                  Book a Briefing
-                </Link>
-                <button className="btn-whatsapp" onClick={handleDirect}>
-                  <FaWhatsapp className="whatsapp-icon" />
-                  WhatsApp Support
-                </button>
-              </div>
-            </div>
+          <div className="fdh-hero-btns">
+            <Link to="/book-briefing" className="fdh-btn-white">
+              <span>Book Briefing</span> <FiArrowUpRight />
+            </Link>
+            <button className="fdh-btn-green" onClick={handleWhatsapp}>
+              <FaWhatsapp /> <span>WhatsApp</span>
+            </button>
           </div>
         </div>
 
-        <div className="footer-bottom">
-          <p className="copyright">
-            © {new Date().getFullYear()} Creolyte Hub. Global Talent, Local
-            Precision.
-          </p>
-          <div className="footer-status">
-            <span className="status-indicator">Systems Online</span>
-            <span className="footer-location">
-              Nairobi HQ: +254 (0) 715 071 832
-            </span>
+        <div className="fdh-middle-row">
+          <div className="fdh-brand-block">
+            <Link to="/" className="fdh-logo">
+              <img src={logoImg} alt="Creolyte Hub" />
+              <span className="fdh-logo-text">CREOLYTE HUB</span>
+            </Link>
+            <p className="fdh-bio">
+              Global Talent, Local Precision. Bridging borderless work and local
+              excellence.
+            </p>
+          </div>
+
+          <div className="fdh-nav-col">
+            <span className="fdh-nav-title">Company</span>
+            <Link to="/about">About Us</Link>
+            <Link to="/kenya-operations">Kenya Ops</Link>
+            <Link to="/case-studies">Case Studies</Link>
+            <Link to="/newsletter">Newsletter</Link>
+          </div>
+
+          <div className="fdh-nav-col">
+            <span className="fdh-nav-title">Legal</span>
+            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms of Service</Link>
+            <Link to="/contact">Contact Us</Link>
+          </div>
+
+          <div className="fdh-connect-col">
+            <span className="fdh-nav-title">Connect</span>
+            <div className="fdh-social-row">
+              <a
+                href="mailto:contact@creolyte.com"
+                className="fdh-icon-circle"
+                aria-label="Email"
+              >
+                <FiAtSign />
+              </a>
+              <button
+                className="fdh-icon-circle"
+                onClick={handleShare}
+                aria-label="Share"
+              >
+                <FiShare2 />
+              </button>
+            </div>
+            <span className="fdh-phone">HQ: +254 (0) 715 071 832</span>
+          </div>
+        </div>
+
+        <div className="fdh-bottom-bar">
+          <p>© {new Date().getFullYear()} Creolyte Hub. All rights reserved.</p>
+          <div className="fdh-status">
+            <span className="fdh-status-dot"></span>
+            <span>Systems Online</span>
           </div>
         </div>
       </div>

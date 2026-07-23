@@ -32,12 +32,7 @@
   align-items: center;
 }
 
-@media (min-width: 900px) {
-  .about-grid-2, .about-craft-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-}
+
 
 .about-badge {
   display: inline-block;
@@ -260,17 +255,20 @@
 }
 
 
-@media (min-width: 900px) {
-  .about-grid-2, .about-craft-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-}
+
 
 
 @media (min-width: 900px) {
   .hq-card {
     grid-template-columns: 1fr 1fr;
     min-height: 360px;
+  }
+}
+
+
+@media (min-width: 900px) {
+  .about-grid-2, .about-craft-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 }

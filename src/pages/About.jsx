@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiEye, FiShield, FiGlobe, FiMapPin, FiMail } from "react-icons/fi";
 import "./About.css";
+import image6 from "../assets/F.jpg";
+import image7 from "../assets/J.jpg";
+
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
@@ -63,13 +66,13 @@ export default function AboutPage() {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+              src={image6}
               alt="Creolyte Hub Team Collaborating"
             />
           </motion.div>
         </motion.section>
 
-        {/* HERITAGE / CRAFTSMANSHIP SECTION */}
+       
         <motion.section
           className="about-craft-grid"
           initial="hidden"
@@ -84,7 +87,7 @@ export default function AboutPage() {
             transition={{ duration: 0.3 }}
           >
             <img
-              src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80"
+              src={image7}
               alt="Modern Tech Workspace"
             />
           </motion.div>
@@ -101,17 +104,7 @@ export default function AboutPage() {
               creative solutions.
             </p>
 
-            <div className="founder-block">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80"
-                alt="Victor Omondi"
-                className="founder-img"
-              />
-              <div>
-                <h4 className="founder-name">Victor Omondi</h4>
-                <p className="founder-role">Founder & Managing Director</p>
-              </div>
-            </div>
+            
           </motion.div>
         </motion.section>
 

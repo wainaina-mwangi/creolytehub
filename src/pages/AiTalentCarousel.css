@@ -1,0 +1,277 @@
+/* ==========================================================================
+   AI TALENT CAROUSEL SECTION STYLES
+   ========================================================================== */
+
+.ai-talent-section {
+  width: 100%;
+  background-color: #f1f7ed; /* Light Sage Green Background */
+  padding: 90px 24px 100px 24px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.ai-talent-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER TYPOGRAPHY
+   -------------------------------------------------------------------------- */
+
+.ai-talent-header {
+  text-align: center;
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.ai-talent-title {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.6rem;
+  font-weight: 500;
+  color: #1a221e;
+  line-height: 1.15;
+  margin: 0 0 20px 0;
+  letter-spacing: -0.02em;
+}
+
+.ai-talent-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.15rem;
+  color: #4a5550;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   CAROUSEL CONTAINER & TRACK
+   -------------------------------------------------------------------------- */
+
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 10px 10px;
+  width: 100%;
+  /* Hide scrollbar for standard browsers */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+/* Hide scrollbar for Chrome/Safari/Opera */
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Carousel Control Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  background-color: #ffffff;
+  color: #0f172a;
+  border: 1px solid #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  transition: all 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.btn-prev {
+  left: 20px;
+}
+
+.btn-next {
+  right: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   TALENT PROFILE CARDS
+   -------------------------------------------------------------------------- */
+
+.talent-card {
+  position: relative;
+  flex: 0 0 320px;
+  height: 480px;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  background-color: #0f172a;
+  transition: transform 0.3s ease;
+}
+
+.talent-card:hover {
+  transform: translateY(-6px);
+}
+
+.talent-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient Overlay for bottom text readability */
+.card-gradient-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 23, 42, 0) 45%,
+    rgba(15, 23, 42, 0.92) 100%
+  );
+  pointer-events: none;
+}
+
+.card-text-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 0;
+  z-index: 2;
+  letter-spacing: -0.01em;
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM CTA BUTTONS
+   -------------------------------------------------------------------------- */
+
+.ai-talent-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-cta {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  padding: 14px 34px;
+  border-radius: 40px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.btn-book {
+  background-color: transparent;
+  color: #0f172a;
+  border: 1.5px solid #0f172a;
+}
+
+.btn-book:hover {
+  background-color: #0f172a;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-hire {
+  background-color: #0f172a;
+  color: #ffffff;
+  border: 1.5px solid #0f172a;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+.btn-hire:hover {
+  background-color: #1e293b;
+  border-color: #1e293b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.25);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn-hire:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 850px) {
+  .ai-talent-title {
+    font-size: 2.7rem;
+  }
+
+  .talent-card {
+    flex: 0 0 280px;
+    height: 420px;
+  }
+
+  .btn-prev {
+    left: 5px;
+  }
+
+  .btn-next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 500px) {
+  .ai-talent-title {
+    font-size: 2.1rem;
+  }
+
+  .ai-talent-section {
+    padding: 60px 16px;
+  }
+
+  .talent-card {
+    flex: 0 0 260px;
+    height: 390px;
+  }
+
+  .card-text-overlay {
+    font-size: 1.05rem;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+  }
+
+  .ai-talent-cta-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}

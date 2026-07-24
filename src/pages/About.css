@@ -97,22 +97,7 @@
   display: block;
 }
 
-.founder-block {
-  display: flex;
-  align-items: center;
-  gap: 0.875rem;
-  margin-top: 1.5rem;
-  padding-top: 1.25rem;
 
-}
-
-.founder-img {
-  width: 2.75rem;
-  height: 2.75rem;
-  border-radius: 50%;
-  object-fit: cover;
- 
-}
 
 .directives-header {
   margin-bottom: 2.5rem;

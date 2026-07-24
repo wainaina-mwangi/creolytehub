@@ -1,45 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
+  MdCheck,
   MdVerifiedUser,
-  MdPublic,
   MdFlashOn,
-  MdSentimentSatisfiedAlt,
-  MdAdd,
+  MdPublic,
+  MdArrowForward,
 } from "react-icons/md";
-import "./HeroSection.css";
-import image1 from "../../assets/image1.webp";
-import image2 from "../../assets/image2.webp";
-import image3 from "../../assets/image3.webp";
 import { useNavigate } from "react-router";
+import "./HeroSection.css";
+import image1 from "../../assets/image3.webp";
 
 export default function HeroSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const carouselImages = [image1, image2, image3];
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 6000);
-    return () => clearInterval(timer);
-  }, [carouselImages.length]);
-
-  const handleScrollToServices = () => {
-    const servicesSection = document.getElementById("services-section");
-    if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
-  const handleMouseMove = (e) => {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
-
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-
-    e.currentTarget.style.setProperty("--x", `${x}%`);
-    e.currentTarget.style.setProperty("--y", `${y}%`);
+  const handleHireClick = () => {
+    navigate("/hire-talent");
   };
 
   const containerVariants = {
@@ -47,14 +23,14 @@ export default function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.12,
         delayChildren: 0.1,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 25 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
@@ -62,17 +38,8 @@ export default function HeroSection() {
     },
   };
 
-  const navigate = useNavigate();
-
-  const handleLinkClick = () => {
-    navigate("/hire-talent");
-
-    if (closeDrawer) {
-      closeDrawer();
-    }
-  };
   return (
-    <section className="hero-section" onMouseMove={handleMouseMove}>
+    <section className="hero-section">
       <div className="hero-container">
         <motion.div
           className="hero-content"
@@ -80,19 +47,12 @@ export default function HeroSection() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="badge-wrapper" variants={itemVariants}>
-            <span className="badge badge-verified">
-              <MdVerifiedUser className="badge-icon" /> Verified Pro
-            </span>
-            <span className="badge badge-global">
-              <MdPublic className="badge-icon" /> Global Reach
-            </span>
-          </motion.div>
-
           <motion.h1 className="hero-title" variants={itemVariants}>
-            Global Work.
-            <br />
-            <span className="title-accent">Local Excellence.</span>
+            Talent Without Borders.
+            <span className="hero-title-italic">
+              {" "}
+              Results Without Compromise.
+            </span>
           </motion.h1>
 
           <motion.p className="hero-description" variants={itemVariants}>
@@ -101,106 +61,84 @@ export default function HeroSection() {
             cultural alignment.
           </motion.p>
 
-          <motion.div className="hero-cta-group" variants={itemVariants}>
-            <motion.button
-              className="btn btn-primary"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={handleLinkClick}
-            >
-              Hire Your Remote Team
-            </motion.button>
-            <motion.button
-              className="btn btn-secondary"
-              onClick={handleScrollToServices}
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              View Services
-            </motion.button>
-          </motion.div>
-
-          <motion.div className="hero-trust-footers" variants={itemVariants}>
-            <span className="trust-item">
-              <MdFlashOn className="trust-icon" /> 24h Response
+          <motion.div className="hero-bullets" variants={itemVariants}>
+            <span className="bullet-item">
+              <MdCheck className="check-icon" /> Vetted Kenyan Remote
+              Talent
             </span>
-            <span className="trust-item">
-              <MdSentimentSatisfiedAlt className="trust-icon" /> 98%
-              Satisfaction
+            <span className="bullet-item">
+              <MdCheck className="check-icon" /> Managed Remote Operations
+            </span>
+            <span className="bullet-item">
+              <MdCheck className="check-icon" /> 5+ Hours Working Overlap
             </span>
           </motion.div>
         </motion.div>
 
         <motion.div
-          className="hero-graphic-wrapper"
-          initial={{ opacity: 0, y: 40 }}
+          className="hero-showcase-wrapper"
+          initial={{ opacity: 0, y: 35 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.8, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="window-card">
-            <div className="window-header"></div>
-
-            <div className="window-body-carousel">
-              <div
-                className="carousel-track"
-                style={{ "--current-slide": currentIndex }}
-              >
-                {carouselImages.map((imgSrc, index) => (
-                  <img
-                    key={index}
-                    src={imgSrc}
-                    alt={`Remote talent presentation ${index + 1}`}
-                    className="window-image"
-                  />
-                ))}
+          <div className="floating-card float-left">
+            <span className="float-card-title">Top Skills Match</span>
+            <div className="progress-bar-group">
+              <div className="progress-info">
+                <span>Full-Stack Development</span>
+                <span className="percent">100%</span>
               </div>
-
-              <div className="carousel-dots">
-                {carouselImages.map((_, index) => (
-                  <button
-                    key={index}
-                    className={`dot ${index === currentIndex ? "active" : ""}`}
-                    onClick={() => setCurrentIndex(index)}
-                    aria-label={`Go to slide ${index + 1}`}
-                  />
-                ))}
+              <div className="progress-track">
+                <div className="progress-fill fill-100" />
               </div>
             </div>
-
-            <div className="window-footer">
-              <div className="footer-left">
-                <span className="footer-label">Current Active Talent</span>
-                <h3 className="footer-stat">100+</h3>
+            <div className="progress-bar-group">
+              <div className="progress-info">
+                <span>UI/UX & Web Design</span>
+                <span className="percent">95%</span>
               </div>
-
-              <div className="footer-right">
-                <div className="avatar-stack">
-                  <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
-                    alt="Remote Specialist"
-                    className="avatar"
-                  />
-                  <img
-                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
-                    alt="Remote Engineer"
-                    className="avatar"
-                  />
-                  <img
-                    src="https://media.istockphoto.com/id/2218333130/photo/confident-businessman-smiling-in-a-casual-suit-and-glasses-indoors.webp?a=1&b=1&s=612x612&w=0&k=20&c=H6ImSogE21cldteIwpMDo2LgYK6Szk7mJC4M1aL8PWU="
-                    alt="Remote Specialist"
-                    className="avatar"
-                  />
-
-                  <motion.div
-                    className="avatar-plus-btn"
-                    whileHover={{ rotate: 90 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <MdAdd />
-                  </motion.div>
-                </div>
+              <div className="progress-track">
+                <div className="progress-fill fill-95" />
               </div>
             </div>
+          </div>
+
+          <div className="main-talent-card">
+            <img
+              src={image1}
+              alt="Featured Vetted Specialist"
+              className="talent-bg-image"
+            />
+
+            <div className="talent-badge-overlay">
+              <div className="talent-name-row">
+                <span className="talent-name">Erastus W.</span>
+                <span className="match-tag">
+                  <MdVerifiedUser size={13} /> 100% Match
+                </span>
+              </div>
+              <span className="talent-role">Full-Stack Web Engineer</span>
+            </div>
+
+            <div className="tech-stack-bar">
+              <span className="tech-pill">React</span>
+              <span className="tech-pill">Tailwind CSS</span>
+              <span className="tech-pill">Node.js</span>
+              <span className="tech-pill">Express</span>
+            </div>
+          </div>
+
+          <div className="floating-card float-right">
+            <div className="float-header">
+              <MdPublic className="float-icon" />
+              <span>Nairobi Talent Hub</span>
+            </div>
+            <p className="float-desc">
+              Get matched with verified Kenyan talent ready to join your team.
+            </p>
+            <button className="btn-hero-primary" onClick={handleHireClick}>
+              Hire Remote Talent <MdArrowForward size={16} />
+            </button>
           </div>
         </motion.div>
       </div>

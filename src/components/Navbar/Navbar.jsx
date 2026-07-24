@@ -7,6 +7,7 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import logoImg from "../../assets/logo.jpeg";
+import { MdPhone } from "react-icons/md";
 
 const Navbar = ({ closeDrawer }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,8 @@ const Navbar = ({ closeDrawer }) => {
       closeDrawer();
     }
   };
+
+  
 
   return (
     <nav className="navbar">
@@ -51,6 +54,7 @@ const Navbar = ({ closeDrawer }) => {
       </ul>
 
       <div className="navbar-actions">
+        
         <button className="button desktop-btn" onClick={handleLinkClick}>
           Hire Talent
           <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
